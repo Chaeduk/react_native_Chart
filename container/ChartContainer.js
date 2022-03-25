@@ -5,6 +5,8 @@ import Dropdown from '../components/Dropdown';
 import data from '../data/data.json';
 import moment from 'moment';
 
+//전체 데이터(임의로 넣어둠)
+
 // 월
 const DaySorting = para => {
   //최적화?(index)

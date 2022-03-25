@@ -1,5 +1,3 @@
-react_native_Chart
-
 ## 실행방법
 
 data/data.json에 데이터를 넣어서 실행

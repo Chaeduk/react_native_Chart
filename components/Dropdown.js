@@ -1,15 +1,19 @@
 import React from 'react';
-import {StyleSheet, View} from 'react-native';
+import {StyleSheet, Text, View} from 'react-native';
 
 const Dropdown = () => {
-  return <View style={styles.block} />;
+  return (
+    <View style={styles.block}>
+      <Text>그래프</Text>
+    </View>
+  );
 };
 
-const styles = {
+const styles = StyleSheet.create({
   block: {
     flex: 1,
-    backgroundColor: 'black',
+    alignItems: 'flex-end',
   },
-};
+});
 
 export default Dropdown;

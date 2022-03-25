@@ -14,8 +14,8 @@ const ChartContainer = () => {
 
 const styles = StyleSheet.create({
   block: {
-    width: '90%',
-    height: '70%',
+    width: '80%',
+    height: '50%',
   },
 });
 

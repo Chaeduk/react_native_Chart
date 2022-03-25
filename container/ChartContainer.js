@@ -50,7 +50,7 @@ const MonthSorting = para => {
 const TimeSorting = para => {};
 
 const ChartContainer = () => {
-  const result = MonthSorting(data);
+  const result = DaySorting(data);
   return (
     <View style={styles.block}>
       <Dropdown />

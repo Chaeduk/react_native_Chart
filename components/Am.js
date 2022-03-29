@@ -1,19 +1,13 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import {WebView} from 'react-native-webview';
-
 const htmldata = `<html>
 <head>
-    <meta
-    name="viewport"
-    id="scalingtag"
-    content="width=device-width, initial-scale=0.9, maximum-scale=0.9"
-  />
   <style>
     #chartdiv {
       width: 100%;
-      height: 500px;
-    max-width: 100%
+      height: 100%;
+    max-width: 100%;
     }
     </style>
     
@@ -154,20 +148,8 @@ const Am = () => {
 
 const styles = StyleSheet.create({
   webView: {width: '100%', height: '100%'},
-  loading: {
-    width: 0,
-    height: 0,
-  },
-  loadingIndicator: {
-    alignSelf: 'center',
-    justifyContent: 'center',
-  },
-  loadingContiainer: {
-    height: '100%',
-    width: '100%',
-  },
   chartContainer: {
-    height: '50%',
+    height: '100%',
     width: '100%',
   },
 });

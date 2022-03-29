@@ -1,44 +1,70 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import ChartView from 'react-native-highcharts';
+import dummy from '../data/dummy.json';
+import moment from 'moment';
+
+const botData = data => {
+  const result = data.map(function (cur, index) {
+    return {x: moment(cur.REG_DT).toDate().getTime(), y: cur.TRADE_RETURN};
+  });
+  return result;
+};
+
+const userData = data => {
+  const result = data.map(function (cur, index) {
+    const refine = cur.TRADE_PRICE.replace(new RegExp(/,/gi), '');
+    return {
+      x: moment(cur.REG_DT).toDate().getTime(),
+      y: Number(refine),
+    };
+  });
+  return result;
+};
+
+const sixMonthSort = data => {
+  const result = data.filter(function (cur) {
+    return cur.x.isBetween(moment().subtract(6, 'months'), moment());
+  });
+  return result;
+};
+
+const oneMonthSort = data => {
+  const result = data.filter(function (cur) {
+    return cur.x.isBetween(moment().subtract(1, 'months'), moment());
+  });
+  return result;
+};
+
+const threeMonthSort = data => {
+  const result = data.filter(function (cur) {
+    return cur.x.isBetween(moment().subtract(3, 'months'), moment());
+  });
+  return result;
+};
 
 const HighChart = () => {
   const Highcharts = 'Highcharts';
   const conf = {
-    chart: {
-      type: 'spline',
-      animation: Highcharts.svg,
-      marginRight: 10,
-      events: {
-        load: function () {
-          const series = this.serires[0];
-          setInterval(function () {
-            const x = new Date().getTime(),
-              y = Math.random();
-            series.addPont([x, y], true, true);
-          }, 1000);
-        },
-      },
-    },
     title: {
-      atext: 'Live random data',
+      text: '',
     },
     xAxis: {
       type: 'datetime',
-      tickPixelInterval: 150,
     },
-    yAxis: {
-      title: {
-        text: 'Value',
-      },
-      plotLines: [
-        {
-          value: 0,
-          width: 1,
-          color: '#808080',
+    yAxis: [
+      {
+        title: {
+          text: 'Value',
         },
-      ],
-    },
+      },
+      {
+        opposite: true,
+        title: {
+          text: 'user',
+        },
+      },
+    ],
     tooltip: {
       formatter: function () {
         return (
@@ -59,21 +85,14 @@ const HighChart = () => {
     },
     series: [
       {
-        name: 'Random data',
-        data: (function () {
-          // generate an array of random data
-          var data = [],
-            time = new Date().getTime(),
-            i;
-
-          for (i = -19; i <= 0; i += 1) {
-            data.push({
-              x: time + i * 1000,
-              y: Math.random(),
-            });
-          }
-          return data;
-        })(),
+        name: 'Random',
+        yAxis: 0,
+        data: botData(dummy),
+      },
+      {
+        name: 'dd',
+        yAxis: 1,
+        data: userData(dummy),
       },
     ],
   };

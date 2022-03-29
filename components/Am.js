@@ -132,7 +132,7 @@ const htmldata = `<html>
 
 const Am = () => {
   return (
-    <View style={[styles.loadingContiainer, styles.chartContainer]}>
+    <View style={styles.block}>
       <WebView
         style={styles.webView}
         source={{html: htmldata}}
@@ -148,8 +148,11 @@ const Am = () => {
 
 const styles = StyleSheet.create({
   webView: {width: '100%', height: '100%'},
-  chartContainer: {
-    height: '100%',
+  block: {
+    // flex: 7,
+    // justifyContent: 'center',
+    // alignItems: 'center',
+    height: '70%',
     width: '100%',
   },
 });

@@ -2,6 +2,7 @@ import React from 'react';
 import {View, StyleSheet} from 'react-native';
 import Dropdown from '../components/Dropdown';
 import Am from '../components/Am';
+import Highchart from '../components/HighChart';
 // import data from '../data/data.json';
 // import moment from 'moment';
 
@@ -56,7 +57,7 @@ const ChartContainer = () => {
   return (
     <View style={styles.block}>
       <Dropdown />
-      <Am />
+      <Highchart />
     </View>
   );
 };

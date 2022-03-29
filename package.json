@@ -13,6 +13,7 @@
     "moment": "^2.29.1",
     "react": "17.0.2",
     "react-native": "0.67.4",
+    "react-native-highcharts": "^1.0.2",
     "react-native-svg": "^12.3.0",
     "react-native-svg-charts": "^5.4.0",
     "react-native-webview": "11.17.2"
